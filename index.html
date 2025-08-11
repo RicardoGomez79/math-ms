@@ -1,402 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Math MS - IED Mariano Santamaría</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math MS 2024</title>
 <style>
-  :root{
-    --verde-oscuro:#1b5e20;
-    --verde:#2e7d32;
-    --verde-claro:#e8f5e9;
-    --texto:#222;
-    --fondo:#f4f6f7;
-  }
-
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    background:var(--fondo);
-    color:var(--texto);
-    -webkit-font-smoothing:antialiased;
-  }
-
-  /* Header */
-  header{
-    position:sticky;
-    top:0;
-    z-index:1100;
-    display:flex;
-    align-items:center;
-    gap:14px;
-    background:linear-gradient(90deg,var(--verde),var(--verde-oscuro));
-    color:white;
-    padding:10px 18px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.12);
-  }
-  header img{height:56px; width:auto; border-radius:6px; background:white; padding:4px;}
-  header h1{font-size:1.15rem; margin:0; line-height:1.1}
-  header p{margin:0; font-size:0.85rem; opacity:0.95}
-
-  /* Nav */
-  nav{
-    display:flex;
-    justify-content:center;
-    gap:6px;
-    padding:8px;
-    background:var(--verde);
-    flex-wrap:wrap;
-  }
-  nav button{
-    background:transparent;
-    color:white;
-    border:none;
-    padding:10px 14px;
-    font-weight:600;
-    cursor:pointer;
-    border-radius:8px;
-    transition:background .18s, transform .12s;
-  }
-  nav button:hover{background:rgba(0,0,0,0.08); transform:translateY(-1px);}
-  nav button.active{background:var(--verde-oscuro); box-shadow:0 4px 8px rgba(0,0,0,0.12);}
-
-  /* Container */
-  .contenido{
-    max-width:1100px;
-    margin:20px auto;
-    padding:16px;
-  }
-
-  /* Home layout */
-  .home-grid{
-    display:grid;
-    grid-template-columns:1fr 460px;
-    gap:20px;
-    align-items:start;
-  }
-  .card{
-    background:white;
-    border-radius:10px;
-    padding:18px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.06);
-  }
-  .project-title{
-    color:var(--verde-oscuro);
-    margin-top:0;
-  }
-  .project-text p{line-height:1.5; margin:0 0 10px 0; text-align:justify}
-
-  /* Video wrapper with 16:9 aspect */
-  .video-wrapper{position:relative;padding-top:56.25%; overflow:hidden; border-radius:8px}
-  .video-wrapper iframe{position:absolute; left:0; top:0; width:100%; height:100%; border:0}
-
-  /* Video grid for lines */
-  .video-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:18px;
-  }
-  .video-card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 6px 18px rgba(0,0,0,0.06);
-    transition:transform .18s;
-  }
-  .video-card:hover{transform:translateY(-6px)}
-  .video-card .video-wrapper{height:0;padding-top:56.25%}
-  .video-card .meta{padding:12px}
-  .video-card h3{font-size:0.98rem; margin:0 0 6px 0; color:var(--verde-oscuro)}
-  .video-card p{margin:0;font-size:0.88rem;color:#444}
-
-  /* Tab content */
-  .tab-content{display:none}
-  .tab-content.active{display:block; animation:fadeIn .45s ease-in-out}
-
-  @keyframes fadeIn{
-    from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)}
-  }
-
-  /* Footer */
-  footer{max-width:1100px;margin:26px auto;padding:14px;text-align:center;color:#666;font-size:0.9rem}
-
-  /* Responsive */
-  @media (max-width:1000px){
-    .home-grid{grid-template-columns:1fr 360px}
-  }
-  @media (max-width:820px){
-    header{padding:10px}
-    .home-grid{grid-template-columns:1fr}
-    nav{padding:6px}
-    header img{height:48px}
-  }
-  @media (max-width:420px){
-    header h1{font-size:1rem}
-    .project-text p{font-size:0.95rem}
-    nav button{padding:8px 10px;font-size:0.95rem}
-  }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f7f4;
+        color: #333;
+    }
+    header {
+        background-color: #2e7d32;
+        color: white;
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    nav button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    nav button:hover, nav button.active {
+        background-color: #1b5e20;
+        border-radius: 5px;
+    }
+    .section {
+        display: none;
+        padding: 20px;
+        max-width: 1000px;
+        margin: auto;
+    }
+    .section.active {
+        display: block;
+    }
+    h1, h2 {
+        color: #1b5e20;
+    }
+    iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .video-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    p {
+        text-align: justify;
+        line-height: 1.6;
+    }
 </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="escudo.png" alt="Escudo del colegio (sube 'escudo.png' al repositorio)">
-    <div>
-      <h1>Math MS: Hablemos de Matemáticas</h1>
-      <p>IED Mariano Santamaría — Proyecto educativo 2024</p>
+<header>
+    <nav>
+        <button class="active" onclick="showSection('inicio')">Inicio</button>
+        <button onclick="showSection('linea1')">Línea 1</button>
+        <button onclick="showSection('linea2')">Línea 2</button>
+        <button onclick="showSection('linea3')">Línea 3</button>
+    </nav>
+</header>
+
+<!-- Sección Inicio -->
+<section id="inicio" class="section active">
+    <h1>Proyecto Math MS 2024</h1>
+    <p>
+        Math MS es un proyecto educativo dirigido a estudiantes de bachillerato del Colegio Mariano Santa María, 
+        cuyo objetivo es desarrollar habilidades comunicativas a través de la reflexión y la expresión oral en torno a las matemáticas. 
+        El proyecto se estructura en tres líneas de trabajo: reflexionar sobre experiencias negativas, destacar vivencias positivas y 
+        explicar conceptos matemáticos de forma clara y comprensible.
+    </p>
+    <h2>Video introductorio</h2>
+    <iframe src="https://www.youtube.com/embed/TU_CODIGO_DE_VIDEO" allowfullscreen></iframe>
+</section>
+
+<!-- Sección Línea 1 -->
+<section id="linea1" class="section">
+    <h1>Línea 1: Lo que me alejó de las matemáticas</h1>
+    <p>
+        En esta primera línea, los estudiantes reflexionarán sobre experiencias personales negativas o frustrantes con la asignatura de matemáticas. 
+        El propósito es reconocer y verbalizar aquellas situaciones que han generado rechazo, ansiedad o desmotivación.
+    </p>
+    <ul>
+        <li><b>Actividad principal:</b> Redacción de un texto breve sobre una experiencia negativa.</li>
+        <li><b>Producto oral:</b> Exposición libre sin lectura del texto.</li>
+        <li><b>Objetivo:</b> Fomentar la autorreflexión y comenzar a superar bloqueos emocionales.</li>
+    </ul>
+    <h2>Videos</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/TU_VIDEO1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/TU_VIDEO2" allowfullscreen></iframe>
     </div>
-  </header>
+</section>
 
-  <!-- NAV -->
-  <nav aria-label="Navegación principal">
-    <button id="btnInicio" class="active" onclick="openTab(event,'inicio')">Inicio / Información</button>
-    <button id="btnLinea1" onclick="openTab(event,'linea1')">Línea 1: Lo que me alejó</button>
-    <button id="btnLinea2" onclick="openTab(event,'linea2')">Línea 2: Mi reconciliación</button>
-    <button id="btnLinea3" onclick="openTab(event,'linea3')">Línea 3: Explica y entiende</button>
-  </nav>
+<!-- Sección Línea 2 -->
+<section id="linea2" class="section">
+    <h1>Línea 2: Mi reconciliación con las matemáticas</h1>
+    <p>
+        Esta fase busca destacar vivencias positivas, logros o momentos significativos en los que el estudiante 
+        se haya sentido motivado, comprendido o satisfecho con su desempeño en matemáticas.
+    </p>
+    <ul>
+        <li><b>Actividad principal:</b> Redacción de un texto sobre una experiencia positiva.</li>
+        <li><b>Producto oral:</b> Exposición libre a partir del escrito preparado.</li>
+        <li><b>Objetivo:</b> Fortalecer la autoestima académica y mejorar la percepción de la asignatura.</li>
+    </ul>
+    <h2>Videos</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/TU_VIDEO3" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/TU_VIDEO4" allowfullscreen></iframe>
+    </div>
+</section>
 
-  <main class="contenido">
-
-    <!-- INICIO / INFORMACIÓN -->
-    <section id="inicio" class="tab-content active">
-      <div class="home-grid">
-        <!-- Texto del proyecto -->
-        <div class="card project-text">
-          <h2 class="project-title">Math MS: hablemos de matemáticas en el Mariano Santamaría</h2>
-
-          <p><strong>Institución Educativa:</strong> Institución Educativa Departamental Mariano Santamaría – Inspección de Santandercito. Municipio San Antonio del Tequendama. Cund.</p>
-
-          <p><strong>Docente Responsable:</strong> Docente John Ricardo Gómez Espinel</p>
-
-          <p><strong>Área:</strong> Matemáticas – Educación Básica y Media (Bachillerato)</p>
-
-          <p><strong>Duración:</strong> El proyecto comenzó en el año 2024 y la proyección es que se realice una vez al año.</p>
-
-          <h3>1. Justificación</h3>
-          <p>Las matemáticas suelen ser percibidas por muchos estudiantes como una asignatura difícil, distante o carente de aplicación práctica. Estas percepciones se alimentan, en parte, por experiencias previas negativas, dificultades en la comprensión de conceptos y una enseñanza centrada en la memorización. El proyecto Math MS nace como una propuesta para cambiar esa visión mediante el desarrollo de habilidades comunicativas que permitan a los estudiantes expresar sus emociones, experiencias y conocimientos relacionados con las matemáticas. A través de espacios reflexivos y expresivos, se busca fomentar una relación más cercana, humana y significativa con esta área del conocimiento.</p>
-
-          <h3>2. Objetivo General</h3>
-          <p>Desarrollar habilidades comunicativas orales en los estudiantes de bachillerato del IED Mariano Santamaría, mediante actividades que promuevan la reflexión, el diálogo y la explicación de conceptos matemáticos.</p>
-
-          <h3>3. Objetivos Específicos</h3>
-          <ul>
-            <li>Fomentar espacios de confianza donde los estudiantes compartan sus experiencias negativas y positivas con las matemáticas.</li>
-            <li>Promover el pensamiento crítico y la expresión verbal de ideas relacionadas con el aprendizaje matemático.</li>
-            <li>Fortalecer la comprensión conceptual de temas matemáticos mediante su explicación oral en lenguaje natural.</li>
-            <li>Mejorar la actitud de los estudiantes hacia las matemáticas a través de una experiencia comunicativa.</li>
-          </ul>
-
-          <h3>4. Metodología</h3>
-          <p>El proyecto se desarrollará en tres líneas, cada una con una temática específica. En cada línea, los estudiantes elaborarán un texto escrito personal y luego realizarán una exposición oral ante sus compañeros sin leer, con el fin de desarrollar fluidez, seguridad y claridad en su expresión oral.</p>
-
-          <h4>Línea 1: “Lo que me alejó de las matemáticas”</h4>
-          <p>En esta primera línea, los estudiantes reflexionarán sobre experiencias personales negativas o frustrantes con la asignatura de matemáticas. El propósito es reconocer y verbalizar aquellas situaciones que han generado rechazo, ansiedad o desmotivación.</p>
-          <ul>
-            <li><strong>Actividad principal:</strong> Cada estudiante escribirá un texto breve donde relate una experiencia negativa con las matemáticas.</li>
-            <li><strong>Producto oral:</strong> Posteriormente, expondrá su experiencia frente al grupo, sin leer el texto, procurando utilizar sus propias palabras y expresarse con naturalidad.</li>
-            <li><strong>Objetivo:</strong> Fomentar la autorreflexión y comenzar a superar bloqueos emocionales asociados con el aprendizaje matemático.</li>
-          </ul>
-
-          <h4>Línea 2: “Mi reconciliación con las matemáticas”</h4>
-          <p>Esta fase busca destacar vivencias positivas, logros o momentos significativos en los que el estudiante se haya sentido motivado, comprendido o satisfecho con su desempeño en matemáticas.</p>
-          <ul>
-            <li><strong>Actividad principal:</strong> Redacción de un texto en el que cada estudiante relate una experiencia positiva con las matemáticas.</li>
-            <li><strong>Producto oral:</strong> Exposición oral libre ante el grupo, a partir del escrito preparado previamente.</li>
-            <li><strong>Objetivo:</strong> Fortalecer la autoestima académica y cambiar progresivamente la percepción negativa que algunos estudiantes puedan tener sobre la asignatura.</li>
-          </ul>
-
-          <h4>Línea 3: “Explica y entiende”</h4>
-          <p>En la fase final, los estudiantes asumirán el rol de explicadores de un concepto matemático de su elección, utilizando un lenguaje comprensible para sus compañeros.</p>
-          <ul>
-            <li><strong>Actividad principal:</strong> Elaboración de un texto expositivo breve en el que expliquen un concepto, procedimiento o tema matemático (por ejemplo, el Teorema de Pitágoras, razones trigonométricas, proporcionalidad, etc.).</li>
-            <li><strong>Producto oral:</strong> Presentación oral sin lectura, utilizando ejemplos y, si lo desean, apoyo visual (dibujos, esquemas, objetos).</li>
-            <li><strong>Objetivo:</strong> Fortalecer la comprensión conceptual de temas matemáticos y mejorar la capacidad de comunicarlos de forma clara y accesible.</li>
-          </ul>
-
-          <p>Como evidencia, los estudiantes con un mejor desempeño se grabarán en un auditorio y se subirán posteriormente estos videos a YouTube.</p>
-        </div>
-
-        <!-- Intro video -->
-        <aside class="card">
-          <h3 style="margin-top:0;color:var(--verde-oscuro)">Video de introducción (Math MS 2024)</h3>
-          <div class="video-wrapper" style="margin-top:8px">
-            <iframe src="https://www.youtube.com/embed/As3cGCinIC4" title="Introducción Math MS 2024"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-          </div>
-          <p style="font-size:0.9rem;color:#444;margin-top:12px">Video introductorio del proyecto.</p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- LÍNEA 1 -->
-    <section id="linea1" class="tab-content">
-      <div class="card">
-        <h2 style="margin-top:0;color:var(--verde-oscuro)">Línea 1: Lo que me alejó de las matemáticas</h2>
-        <p>Actividad principal: Cada estudiante escribe un texto y presenta oralmente su experiencia negativa.</p>
-        <div class="video-grid" style="margin-top:14px">
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/JxcnjSmn_ak" title="Mi experiencia de superación — María José Vanegas"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. Mi experiencia de superación en clase de matemáticas — María José Vanegas</h3>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/f9awI5OXVXY" title="Mi primer profe — Alexa Guadalupe Suárez"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. Mi primer profe — Alexa Guadalupe Suárez</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LÍNEA 2 -->
-    <section id="linea2" class="tab-content">
-      <div class="card">
-        <h2 style="margin-top:0;color:var(--verde-oscuro)">Línea 2: Mi reconciliación con las matemáticas</h2>
-        <p>En esta línea se destacan vivencias positivas y logros.</p>
-        <div class="video-grid" style="margin-top:14px">
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/mfvx7Nu_ykI" title="El arte de la disciplina — Wilson David Piñeros"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. El arte de la disciplina — Wilson David Piñeros</h3>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/4jk_KoA6m1A" title="Mi desorden: del caos al orden — Sergio Alejandro Cardona"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. Mi desorden: del caos al orden — Sergio Alejandro Cardona</h3>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/5BQpucoDKk4" title="La estadística en los videojuegos — Juan David Bernal"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. La estadística en los videojuegos — Juan David Bernal</h3>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/BU-nPFgLk-Q" title="Baldor un hombre algebraico — Ana María Barragán"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. Baldor un hombre algebraico — Ana María Barragán</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LÍNEA 3 -->
-    <section id="linea3" class="tab-content">
-      <div class="card">
-        <h2 style="margin-top:0;color:var(--verde-oscuro)">Línea 3: Explica y entiende</h2>
-        <p>En esta línea los estudiantes explican conceptos usando un lenguaje claro y ejemplos.</p>
-        <div class="video-grid" style="margin-top:14px">
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/ul11rlVbR4U" title="La importancia de la lectura en matemáticas — Zully Vanessa Leyton"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. La importancia de la lectura en matemáticas — Zully Vanessa Leyton</h3>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/7lPGZLqwGYo" title="La fotografía: aplicaciones matemáticas — Simón Olivares Torres"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. La fotografía: aplicaciones matemáticas — Simón Olivares Torres</h3>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/mXcHCHMVSUQ" title="La fracción, una forma de entenderlas — Santiago Piraquive"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. La fracción, una forma de entenderlas — Santiago Piraquive</h3>
-            </div>
-          </div>
-
-          <div class="video-card">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/FXrptDcs8AE" title="Calistenia una visión matemática — Diego Alejandro García"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div class="meta">
-              <h3>MATH MS 2024. Calistenia una visión matemática — Diego Alejandro García</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; 2024 Math MS — IED Mariano Santamaría. Docente responsable: John Ricardo Gómez Espinel</p>
-  </footer>
+<!-- Sección Línea 3 -->
+<section id="linea3" class="section">
+    <h1>Línea 3: Explica y entiende</h1>
+    <p>
+        En esta fase, los estudiantes asumirán el rol de explicadores de un concepto matemático de su elección, 
+        utilizando un lenguaje comprensible para sus compañeros.
+    </p>
+    <ul>
+        <li><b>Actividad principal:</b> Elaborar un texto breve explicando un concepto matemático.</li>
+        <li><b>Producto oral:</b> Presentación oral libre con ejemplos y, si se desea, material visual.</li>
+        <li><b>Objetivo:</b> Mejorar la comprensión y la capacidad de comunicación matemática.</li>
+    </ul>
+    <h2>Videos</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/TU_VIDEO5" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/TU_VIDEO6" allowfullscreen></iframe>
+    </div>
+</section>
 
 <script>
-  function openTab(evt, tabId){
-    // ocultar contenidos
-    const contents = document.querySelectorAll('.tab-content');
-    contents.forEach(c => c.classList.remove('active'));
-    // quitar active de botones
-    const buttons = document.querySelectorAll('nav button');
-    buttons.forEach(b => b.classList.remove('active'));
-    // mostrar seleccionado
-    const el = document.getElementById(tabId);
-    if(el) el.classList.add('active');
-    // marcar botón activo
-    if(evt && evt.currentTarget) evt.currentTarget.classList.add('active');
-    // scroll suave al contenedor principal en pantallas pequeñas
-    if(window.innerWidth < 820) window.scrollTo({top:0, behavior:'smooth'});
-  }
-
-  // Al cargar: mostrar Inicio
-  document.addEventListener('DOMContentLoaded', function(){
-    // garantizar que la pestaña Inicio esté activa
-    document.getElementById('btnInicio').classList.add('active');
-    document.getElementById('inicio').classList.add('active');
-  });
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
 </script>
 
 </body>
