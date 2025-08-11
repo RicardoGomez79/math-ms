@@ -1,108 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Math MS - Hablemos de Matemáticas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Rubik', sans-serif; background: #f0f4f8; color: #333; }
-    .encabezado-colegio { background: #e8f5e9; padding: 1rem; text-align: center; display: flex; align-items: center; justify-content: center; gap: 1rem; }
-    .encabezado-colegio img { height: 80px; }
-    .encabezado-colegio h1 { font-size: 1.5rem; color: #2e7d32; }
-    header { background: #388e3c; color: white; padding: 1.5rem; text-align: center; }
-    nav { background: #2e7d32; padding: 1rem; text-align: center; }
-    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: 600; }
-    .container { padding: 2rem; max-width: 1200px; margin: auto; }
-    h2 { color: #388e3c; margin-top: 2rem; }
-    iframe { width: 100%; height: 315px; margin: 1rem 0; border: none; }
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
-    footer { background: #388e3c; color: white; text-align: center; padding: 1rem; margin-top: 3rem; }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.5rem; }
-      .encabezado-colegio { flex-direction: column; }
-      .encabezado-colegio h1 { font-size: 1.2rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math MS - Proyecto de Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #006400;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        header img {
+            height: 80px;
+            vertical-align: middle;
+        }
+        header h1 {
+            display: inline-block;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #228B22;
+        }
+        nav button {
+            background-color: transparent;
+            border: none;
+            padding: 14px 20px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        nav button:hover, nav button.active {
+            background-color: #006400;
+        }
+        .contenido {
+            display: none;
+            padding: 20px;
+        }
+        .activo {
+            display: block;
+        }
+        iframe {
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <div class="encabezado-colegio">
-    <img src="escudo mariano.jpg" alt="Escudo del Colegio" />
-    <h1>Institución Educativa Departamental Mariano Santamaría - Santandercito</h1>
-  </div>
 
-  <header>
-    <h1>Math MS: Hablemos de Matemáticas en el Mariano Santamaría</h1>
-  </header>
+    <!-- Encabezado con escudo y nombre del colegio -->
+    <header>
+        <img src="escudo.png" alt="Escudo del colegio">
+        <h1>Colegio Mariano Santa María</h1>
+    </header>
 
-  <nav>
-    <a href="#proyecto">Proyecto</a>
-    <a href="#videos">Videos 2024</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+    <!-- Menú de pestañas -->
+    <nav>
+        <button class="tablink active" onclick="abrirLinea(event, 'linea1')">Línea 1: Lo que me alejó de las matemáticas</button>
+        <button class="tablink" onclick="abrirLinea(event, 'linea2')">Línea 2: Mi reconciliación con las matemáticas</button>
+        <button class="tablink" onclick="abrirLinea(event, 'linea3')">Línea 3: Explica y entiende</button>
+    </nav>
 
-  <div class="container">
-    <section id="proyecto">
-      <h2>¿Qué es Math MS?</h2>
-      <p><strong>Institución Educativa:</strong> IED Mariano Santamaría – Santandercito, San Antonio del Tequendama, Cundinamarca.</p>
-      <p><strong>Docente Responsable:</strong> John Ricardo Gómez Espinel</p>
-      <p><strong>Área:</strong> Matemáticas – Educación Básica y Media</p>
-      <p><strong>Duración:</strong> Desde 2024, con proyección anual</p>
+    <!-- Contenido Línea 1 -->
+    <div id="linea1" class="contenido activo">
+        <h2>Línea 1: Lo que me alejó de las matemáticas</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JxcnjSmn_ak" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/f9awI5OXVXY" frameborder="0" allowfullscreen></iframe>
+    </div>
 
-      <h3>Justificación</h3>
-      <p>El proyecto Math MS nace para transformar la forma en que los estudiantes se relacionan con las matemáticas, fomentando espacios de expresión oral y reflexión que promuevan una relación más cercana y significativa con esta área del conocimiento.</p>
+    <!-- Contenido Línea 2 -->
+    <div id="linea2" class="contenido">
+        <h2>Línea 2: Mi reconciliación con las matemáticas</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mfvx7Nu_ykI" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/4jk_KoA6m1A" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5BQpucoDKk4" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/BU-nPFgLk-Q" frameborder="0" allowfullscreen></iframe>
+    </div>
 
-      <h3>Objetivo General</h3>
-      <p>Desarrollar habilidades comunicativas orales en estudiantes de bachillerato mediante actividades de reflexión, diálogo y explicación de conceptos matemáticos.</p>
+    <!-- Contenido Línea 3 -->
+    <div id="linea3" class="contenido">
+        <h2>Línea 3: Explica y entiende</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ul11rlVbR4U" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7lPGZLqwGYo" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mXcHCHMVSUQ" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/FXrptDcs8AE" frameborder="0" allowfullscreen></iframe>
+    </div>
 
-      <h3>Objetivos Específicos</h3>
-      <ul>
-        <li>Crear espacios para compartir experiencias personales con las matemáticas.</li>
-        <li>Estimular el pensamiento crítico y la expresión verbal.</li>
-        <li>Fortalecer la comprensión conceptual mediante la explicación oral.</li>
-        <li>Mejorar la actitud hacia las matemáticas desde una experiencia comunicativa.</li>
-      </ul>
+    <script>
+        function abrirLinea(evt, lineaId) {
+            let i, contenido, tablinks;
+            contenido = document.getElementsByClassName("contenido");
+            for (i = 0; i < contenido.length; i++) {
+                contenido[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(lineaId).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-      <h3>Metodología</h3>
-      <p>El proyecto se desarrolla en tres líneas temáticas:</p>
-      <ul>
-        <li><strong>Línea 1:</strong> "Lo que me alejó de las matemáticas"</li>
-        <li><strong>Línea 2:</strong> "Mi reconciliación con las matemáticas"</li>
-        <li><strong>Línea 3:</strong> "Explica y entiende"</li>
-      </ul>
-    </section>
+        // Mostrar solo la primera línea al cargar
+        document.getElementById("linea1").style.display = "block";
+    </script>
 
-    <section id="videos">
-      <h2>Videos 2024</h2>
-      <h3>Intro del Proyecto</h3>
-      <iframe src="https://www.youtube.com/embed/As3cGCinIC4" allowfullscreen></iframe>
-
-      <h3>Participantes</h3>
-      <div class="video-grid">
-        <iframe src="https://www.youtube.com/embed/f9awI5OXVXY" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/BU-nPFgLk-Q" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/5BQpucoDKk4" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/FXrptDcs8AE" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/JxcnjSmn_ak" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/mXcHCHMVSUQ" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/4jk_KoA6m1A" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/7lPGZLqwGYo" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/mfvx7Nu_ykI" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/ul11rlVbR4U" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p><strong>Docente:</strong> John Ricardo Gómez Espinel</p>
-      <p><strong>Correo:</strong> (puedes agregar tu email si deseas)</p>
-      <p><strong>Institución:</strong> IED Mariano Santamaría</p>
-    </section>
-  </div>
-
-  <footer>
-    <p>&copy; 2024 Math MS | Todos los derechos reservados.</p>
-  </footer>
 </body>
 </html>
